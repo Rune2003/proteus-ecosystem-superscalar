@@ -61,3 +61,6 @@ FORCE:
 
 clean:
 	rm -rf $(BUILD_DIR)
+
+clean-cache
+    ccache -C
