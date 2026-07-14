@@ -39,11 +39,8 @@ VERILATOR_FLAGS += -Wno-WIDTH -Wno-UNOPTFLAT -Wno-CMPCONST -Wno-UNSIGNED
 
 all: $(EXE_FILE)
 
-$(EXE_FILE): $(BUILD_DIR)/$(VERILATOR_NAME).mk main.cpp
-	make -j $$(nproc) -C $(BUILD_DIR) -f $(VERILATOR_NAME).mk $(EXE_NAME)
-
-$(BUILD_DIR)/$(VERILATOR_NAME).mk: $(VERILOG_INPUT) main.cpp
-	verilator $(VERILATOR_FLAGS) -CFLAGS "$(CFLAGS)" -Mdir $(BUILD_DIR) $(VERILOG_INPUT) main.cpp -o $(EXE_NAME)
+$(EXE_FILE): $(VERILOG_INPUT) main.cpp
+	verilator --build -j $$(nproc) $(VERILATOR_FLAGS) -CFLAGS "$(CFLAGS)" -Mdir $(BUILD_DIR) $(VERILOG_INPUT) main.cpp -o $(EXE_NAME)
 
 $(VERILOG_INPUT): $(BASE_DIR)/$(VERILOG_FILE_NAME)
 	mkdir -p $(@D)
