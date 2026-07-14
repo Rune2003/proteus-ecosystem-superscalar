@@ -9,7 +9,7 @@ RUN echo "Install EVAL-HD: ${INSTALL_EVAL_HD}"
 RUN echo "Setup Proteus core: ${INSTALL_PROTEUS}"
 RUN echo "Install riscv-formal: ${INSTALL_RISCV_FORMAL}"
 
-RUN apt-get update && apt-get -yqq install openjdk-17-jdk verilator libz-dev python3-pip python3-venv gtkwave scons
+RUN apt-get update && apt-get -yqq install openjdk-17-jdk verilator libz-dev python3-pip python3-venv gtkwave scons ccache
 
 WORKDIR /ecosystem
 COPY ./benchmarks ./benchmarks
