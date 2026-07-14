@@ -303,6 +303,11 @@ private:
 
     bool stdinAvailable() const
     {
+        // Only ask the operating system once every 10,000 clock cycles to speed up simulation
+        static uint64_t pollCounter = 0;
+        if ((pollCounter++ % 10000) != 0)
+            return false;
+
         if (std::cin.eof())
             return false;
 
