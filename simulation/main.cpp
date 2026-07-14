@@ -396,14 +396,22 @@ int main(int argc, char** argv)
     while (!isDone)
     {
         auto clockEdge = (mainTime % (CLOCK_PERIOD/2) == 0);
+        bool inputsChanged = false;
 
-        if (clockEdge)
+        if (clockEdge) {
             top->clk = !top->clk;
+            inputsChanged = true;
+        }
 
-        if (mainTime >= 5*CLOCK_PERIOD)
+        if (mainTime == 5 * CLOCK_PERIOD) {
             top->reset = 0;
+            inputsChanged = true;
+        }
 
-        top->eval();
+        // Only evaluate when the hardware actually experiences an input change
+        if (inputsChanged) {
+            top->eval();
+        }
 
         if (clockEdge && top->clk)
         {
