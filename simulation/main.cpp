@@ -24,7 +24,8 @@ const int    CLOCK_PERIOD    = 1/(CLOCK_FREQUENCY*TIMESCALE);
 
 const std::uint64_t MAX_CYCLES = 1000000000ULL;
 
-const unsigned int MEMBUS_WORDS = 4;
+// Auto-detect the number of 32-bit words directly from the generated Verilator model
+const unsigned int MEMBUS_WORDS = sizeof(VCore::io_axi_r_payload_data) / sizeof(uint32_t);
 const unsigned int MEMBUS_OFFSET = 2 + std::bit_width(MEMBUS_WORDS) - 1;
 
 bool logStores = false;
