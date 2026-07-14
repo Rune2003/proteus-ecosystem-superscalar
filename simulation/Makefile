@@ -14,6 +14,9 @@ VERILATOR_NAME = V$(TOPLEVEL_MODULE)
 EXE_NAME ?= sim
 EXE_FILE = $(BUILD_DIR)/$(EXE_NAME)
 
+# Enable caching of previous compilations
+export OBJCACHE = ccache
+
 CFLAGS = -O3 -std=c++20
 CFLAGS += $(EXTRA_CFLAGS)
 
