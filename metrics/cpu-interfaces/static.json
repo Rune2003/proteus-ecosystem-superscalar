@@ -1,0 +1,28 @@
+{
+  "id": "static",
+  "name": "Static",
+  "core": "riscv.CoreExtMem",
+  "clk_signal": "TOP.clk",
+  "signal_prefix": "TOP.Core.pipeline",
+  "signals": {
+    "stages": {
+      "fetch_0_isDone": "fetch.arbitration_isDone",
+      "issue_0_isDone": "decode.arbitration_isDone",
+      "ret_0_isDone": "writeback.arbitration_isDone",
+      "ret_0_canCommit": "writeback.arbitration_isDone"
+    },
+    "instructions": {
+      "instret": "CsrFile.CsrFile_instret"
+    },
+    "branch_prediction": {
+      "branch_mispredictions": "BranchTargetPredictor_mispredictionCount",
+      "branch_predictions": "BranchTargetPredictor_predictionCount"
+    },
+    "caches": {
+      "d_cache_misses": "cache_dbus_cacheMisses",
+      "d_cache_hits": "cache_dbus_cacheHits",
+      "i_cache_misses": "cache_ibus_cacheMisses",
+      "i_cache_hits": "cache_ibus_cacheHits"
+    }
+  }
+}

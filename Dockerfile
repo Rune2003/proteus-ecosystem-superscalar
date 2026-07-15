@@ -22,6 +22,7 @@ COPY ./noninterference-testing ./noninterference-testing
 COPY ./simulation ./simulation
 COPY ./synthesis ./synthesis
 COPY ./waveform-analysis ./waveform-analysis
+COPY ./metrics ./metrics
 
 RUN ./install-scripts/sbt.sh
 RUN ./install-scripts/python-modules.sh

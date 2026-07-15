@@ -1,0 +1,14 @@
+{
+  "id": "dynamic",
+  "name": "Dynamic",
+  "core": "riscv.CoreDynamicExtMem",
+  "base_config": "static.json",
+  "signals": {
+    "flushes": {
+      "flushes": "Scheduler_rob_flushCounter",
+      "soft_flushes": "Scheduler_rob_softFlushCounter",
+      "flush": "Scheduler_rob_hardResetThisCycle",
+      "soft_flush": "Scheduler_rob_softResetThisCycle"
+    }
+  }
+}

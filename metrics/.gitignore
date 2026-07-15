@@ -1,0 +1,5 @@
+builds/
+results/
+plots/
+.venv/
+.idea/
